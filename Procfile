@@ -1,1 +1,1 @@
-worker: pnpm test
+worker: pnpm start
