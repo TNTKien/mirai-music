@@ -1,14 +1,16 @@
-import { Lavalink } from "#stelle/classes";
+import { Lavalink } from "#mirai/classes";
 
 export default new Lavalink({
-    name: "trackEnd",
-    type: "manager",
-    run: async (client, player) => {
-        if (!player.textChannelId) return;
+  name: "trackEnd",
+  type: "manager",
+  run: async (client, player) => {
+    if (!player.textChannelId) return;
 
-        const messageId = player.get<string | undefined>("messageId");
-        if (!messageId) return;
+    const messageId = player.get<string | undefined>("messageId");
+    if (!messageId) return;
 
-        await client.messages.edit(messageId, player.textChannelId, { components: [] }).catch(() => null);
-    },
+    await client.messages
+      .edit(messageId, player.textChannelId, { components: [] })
+      .catch(() => null);
+  },
 });

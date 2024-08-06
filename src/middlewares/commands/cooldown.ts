@@ -3,33 +3,34 @@ import { createMiddleware } from "seyfert";
 import { EmbedColors } from "seyfert/lib/common/index.js";
 import { MessageFlags } from "seyfert/lib/types/index.js";
 
-import type { AnyContext } from "#stelle/types";
+import type { AnyContext } from "#mirai/types";
 
 type CommandData = {
-    name: string;
-    type: string;
+  name: string;
+  type: string;
 };
 
 function getMetadata(ctx: AnyContext): CommandData {
-    if (ctx.isChat() || ctx.isMenu())
-        return {
-            name: ctx.fullCommandName,
-            type: "command",
-        };
-
-    if (ctx.isComponent() || ctx.isModal())
-        return {
-            name: ctx.customId,
-            type: "component",
-        };
-
+  if (ctx.isChat() || ctx.isMenu())
     return {
-        name: "---",
-        type: "any",
+      name: ctx.fullCommandName,
+      type: "command",
     };
+
+  if (ctx.isComponent() || ctx.isModal())
+    return {
+      name: ctx.customId,
+      type: "component",
+    };
+
+  return {
+    name: "---",
+    type: "any",
+  };
 }
 
-export const checkCooldown = createMiddleware<void>(async ({ context, next, pass }) => {
+export const checkCooldown = createMiddleware<void>(
+  async ({ context, next, pass }) => {
     const { client, author, command } = context;
     const { cooldowns } = client;
 
@@ -45,20 +46,23 @@ export const checkCooldown = createMiddleware<void>(async ({ context, next, pass
 
     const data = cooldowns.get(setKey);
     if (data && timeNow < data) {
-        context.editOrReply({
-            flags: MessageFlags.Ephemeral,
-            embeds: [
-                {
-                    description: messages.events.inCooldown({ time: Math.floor(data / 1000) }),
-                    color: EmbedColors.Red,
-                },
-            ],
-        });
+      context.editOrReply({
+        flags: MessageFlags.Ephemeral,
+        embeds: [
+          {
+            description: messages.events.inCooldown({
+              time: Math.floor(data / 1000),
+            }),
+            color: EmbedColors.Red,
+          },
+        ],
+      });
 
-        return pass();
+      return pass();
     }
 
     cooldowns.set(setKey, timeNow + cooldown, cooldown);
 
     return next();
-});
+  }
+);

@@ -1,5 +1,5 @@
 {
-	// Place your stelle-music workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// Place your mirai-music workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
 	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
 	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
 	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
@@ -15,14 +15,14 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-	"Create a new Stelle command.": {
-		"prefix": "@stelle:command",
+	"Create a new Mirai command.": {
+		"prefix": "@mirai:command",
 		"scope": "typescript",
 		"body": [
 			"import { Declare, Command } from \"seyfert\";",
-			"import { StelleOptions } from \"#stelle/decorators\";",
+			"import { MiraiOptions } from \"#mirai/decorators\";",
 			"",
-			"import { Configuration } from \"#stelle/data/Configuration.js\";",
+			"import { Configuration } from \"#mirai/data/Configuration.js\";",
 			"",
 			"@Declare({",
 			"    name: \"${1:example}\",",
@@ -31,14 +31,14 @@
 			"    integrationTypes: [\"GuildInstall\"],",
 			"    contexts: [\"Guild\"],",
 			"})",
-			"@StelleOptions({ ... })",
+			"@MiraiOptions({ ... })",
 			"export default class ${3:Example}Command extends Command {}",
 			""
 		],
-		"description": "Create a new Stelle command."
+		"description": "Create a new Mirai command."
 	},
-	"Create a new Stelle component.": {
-		"prefix": "@stelle:component",
+	"Create a new Mirai component.": {
+		"prefix": "@mirai:component",
 		"scope": "typescript",
 		"body": [
 			"import { ComponentCommand, type ComponentContext } from \"seyfert\";",
@@ -53,10 +53,10 @@
 			"    async run(ctx: ComponentContext<typeof this.componentType>): Promise<void> {}",
 			"}"
 		],
-		"description": "Create a new Stelle component."
+		"description": "Create a new Mirai component."
 	},
-	"Create a new Stelle subcommand.": {
-		"prefix": "@stelle:subcommand",
+	"Create a new Mirai subcommand.": {
+		"prefix": "@mirai:subcommand",
 		"scope": "typescript",
 		"body": [
 			"import { Declare, type CommandContext, SubCommand } from \"seyfert\";",
@@ -69,6 +69,6 @@
 			"    async run(ctx: CommandContext): Promise<void> {}",
 			"}"
 		],
-		"description": "Create a new Stelle subcommand."
+		"description": "Create a new Mirai subcommand."
 	}
 }

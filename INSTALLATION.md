@@ -1,28 +1,12 @@
-## ⚙️ Installation
+### 📋 Configuration
 
-* Trying to run Stelle? Here are a few brief steps.
-* I will assume you have [the requirements](https://github.com/Ganyu-Studios/stelle-music?tab=readme-ov-file#%EF%B8%8F-minimum-requeriments) to even get started.
-
-###  📋 Clone the repo
-* There is not much science on this.... Right?
-```bash
-git clone https://github.com/Ganyu-Studios/stelle-music.git
-```
-
-###  📋 Install Dependencies
-* There is not much science on this.
-```bash
-cd stelle-music
-pnpm i
-```
-
-###  📋 Configuration
-* Stelle has a configuration to save a specific data.
+- Mirai has a configuration to save a specific data.
 
 > 1. Go to [the configuration](/src/structures/utils/data/Configuration.ts#L16-L19)
 > 2. Replace the IDs with your IDs.
 
 > Example:
+
 ```js
 guildIds: [
     "123", // Example Guild
@@ -31,8 +15,10 @@ guildIds: [
 ];
 ```
 
-###  📋 Traspile and Run
-* Stelle is made in `Typescript` but runs in `Javascript`.
+### 📋 Traspile and Run
+
+- Mirai is made in `Typescript` but runs in `Javascript`.
+
 ```bash
 #This is necessary for typescript.
 pnpm prisma generate #Generate types for prisma.
@@ -46,5 +32,6 @@ pnpm start #Will start the bot
 ```
 
 ### 🔎 Looking for a lavalink node?
-> Stelle needs a [`Lavalink node`](https://github.com/lavalink-devs/Lavalink) to play music.
+
+> Mirai needs a [`Lavalink node`](https://github.com/lavalink-devs/Lavalink) to play music.
 > See [self hosting a node](/LAVALINK.md) for more.

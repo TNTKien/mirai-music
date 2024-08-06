@@ -1,9 +1,9 @@
 import "dotenv/config";
 
 import { Logger } from "seyfert";
-import { Stelle } from "#stelle/client";
-import { customLogger } from "#stelle/utils/Logger.js";
-import { validateEnv } from "#stelle/utils/functions/validateEnv.js";
+import { Mirai } from "#mirai/client";
+import { customLogger } from "#mirai/utils/Logger.js";
+import { validateEnv } from "#mirai/utils/functions/validateEnv.js";
 
 Logger.customize(customLogger);
 Logger.saveOnFile = "all";
@@ -11,6 +11,6 @@ Logger.dirname = "logs";
 
 validateEnv();
 
-const client = new Stelle();
+const client = new Mirai();
 
 export default client;
