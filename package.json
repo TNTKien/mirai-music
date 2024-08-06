@@ -61,5 +61,8 @@
     "#mirai/index": "./dist/index.js",
     "#mirai/data/*": "./dist/structures/utils/data/*",
     "#mirai/utils/*": "./dist/structures/utils/*"
+  },
+  "engines": {
+    "node": "20.16.0"
   }
 }
