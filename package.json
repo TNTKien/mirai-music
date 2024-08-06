@@ -15,8 +15,7 @@
     "start:debug": "node ./dist/index.js --debug",
     "lint": "biome lint --apply ./src",
     "format": "biome check --write ./src",
-    "heroku-prebuild": "export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=; NPM_CONFIG_PRODUCTION=false NODE_ENV=development pnpm install --only=dev --dev",
-    "heroku-postbuild": "export NPM_CONFIG_PRODUCTION=true; export NODE_ENV=production; prisma generate"
+    "heroku-postbuild": "prisma generate"
   },
   "lint-staged": {
     "*.ts": [
