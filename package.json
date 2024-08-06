@@ -13,7 +13,9 @@
     "start": "node ./dist/index.js",
     "start:debug": "node ./dist/index.js --debug",
     "lint": "biome lint --apply ./src",
-    "format": "biome check --write ./src"
+    "format": "biome check --write ./src",
+    "heroku-prebuild": "export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=; NPM_CONFIG_PRODUCTION=false NODE_ENV=development pnpm install --only=dev --dev",
+    "heroku-postbuild": "export NPM_CONFIG_PRODUCTION=true; export NODE_ENV=production;"
   },
   "lint-staged": {
     "*.ts": [
