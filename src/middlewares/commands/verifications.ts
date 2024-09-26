@@ -19,7 +19,7 @@ export const checkVerifications = createMiddleware<void>(
     const player = client.manager.getPlayer(context.guildId!);
     const isAutoplay = !!player?.get<boolean | undefined>("enabledAutoplay");
 
-    if (member.id === "559979358404608001") {
+    if (member.id === "743400624422387772") {
       await context.editOrReply({
         embeds: [
           {
